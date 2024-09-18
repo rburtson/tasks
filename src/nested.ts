@@ -1,15 +1,16 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    let publishedQs = questions.map((question: Question) =>
-        question.published ? question : 0,
+    let publishedQs = questions.filter(
+        (question: Question) => question.published,
     );
-    return [];
+    return publishedQs;
 }
 
 /**
@@ -37,7 +38,10 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    let removedQs = questions.filter(
+        (question: Question) => question.id !== id,
+    );
+    return removedQs;
 }
 
 /***
@@ -45,21 +49,28 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    let namesQs = questions.map((question: Question) => question.name);
+    return namesQs;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    questions.forEach((question: Question) => (sum += question.points));
+    return sum;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    questions.forEach((question: Question) =>
+        question.published ? (sum += question.points) : (sum += 0),
+    );
+    return sum;
 }
 
 /***
@@ -97,7 +108,10 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    return questions.map((question: Question) => ({
+        ...question,
+        published: true,
+    }));
 }
 
 /***
@@ -119,7 +133,8 @@ export function addNewQuestion(
     name: string,
     type: QuestionType,
 ): Question[] {
-    return [];
+    let newQ = [...questions, makeBlankQuestion(id, name, type)];
+    return newQ;
 }
 
 /***
@@ -132,7 +147,10 @@ export function renameQuestionById(
     targetId: number,
     newName: string,
 ): Question[] {
-    return [];
+    let renamedQs = questions.map((question: Question) =>
+        question.id === targetId ? { ...question, name: newName } : question,
+    );
+    return renamedQs;
 }
 
 /***
