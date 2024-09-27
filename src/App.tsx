@@ -25,7 +25,7 @@ function App(): React.JSX.Element {
             </header>
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
-            <hr></hr>
+            {/* <hr></hr>
             <GiveAttempts></GiveAttempts>
             <hr></hr>
             <EditMode></EditMode>
@@ -37,7 +37,7 @@ function App(): React.JSX.Element {
                 expectedAnswer="b"
             ></MultipleChoiceQuestion>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            <DoubleHalf></DoubleHalf> */}
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
