@@ -27,17 +27,17 @@ function App(): React.JSX.Element {
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>
             <GiveAttempts></GiveAttempts>
-            {/* <hr></hr>
+            <hr></hr>
             <EditMode></EditMode>
             <hr></hr>
             <ChangeColor></ChangeColor>
-            <hr></hr>
+            {/* <hr></hr>
             <MultipleChoiceQuestion
                 options={["a", "b", "c"]}
                 expectedAnswer="b"
-            ></MultipleChoiceQuestion>
+            ></MultipleChoiceQuestion> */}
             <hr></hr>
-            <DoubleHalf></DoubleHalf> */}
+            <DoubleHalf></DoubleHalf>
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
