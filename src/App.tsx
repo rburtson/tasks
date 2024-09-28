@@ -31,11 +31,11 @@ function App(): React.JSX.Element {
             <EditMode></EditMode>
             <hr></hr>
             <ChangeColor></ChangeColor>
-            {/* <hr></hr>
+            <hr></hr>
             <MultipleChoiceQuestion
                 options={["a", "b", "c"]}
                 expectedAnswer="b"
-            ></MultipleChoiceQuestion> */}
+            ></MultipleChoiceQuestion>
             <hr></hr>
             <DoubleHalf></DoubleHalf>
             <hr></hr>
